@@ -9,7 +9,7 @@ export class RegisterResolver {
     return 'Hello World';
   }
 
-  @Mutation(() => String)
+  @Mutation(() => User)
   async register(
     @Arg('firstName') firstName: string,
     @Arg('lastName') lastName: string,
@@ -21,7 +21,7 @@ export class RegisterResolver {
       firstName,
       lastName,
       email,
-      password: hashedPassword
+      password: hashedPassword,
     }).save();
     return user;
   }
